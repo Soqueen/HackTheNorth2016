@@ -10,9 +10,9 @@ HOSTNAME = "www.eventplanner.com"
 ref_id = None
 
 
-# def generate_unique_url():
-#     """ Generator Unique URL."""
-#     return str(uuid.uuid4())[:11].replace("-", "").lower()
+def generate_unique_url():
+    """ Generator Unique URL."""
+    return str(uuid.uuid4())[:11].replace("-", "").lower()
 
 
 @app.route("/")
