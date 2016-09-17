@@ -69,6 +69,10 @@ def split_budget():
         # place holder for rest api splitwise
         pass
     return render_template("split_budget.html")
+@app.route('/bill_data')
+def bill_data():
+    #place holder to save bill name and value to DB
+    return render_template("split_budget.html")
 
 if __name__ == '__main__':
     app.debug = True
