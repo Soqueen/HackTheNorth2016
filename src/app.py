@@ -3,16 +3,16 @@
 import sys
 import uuid
 from flask import Flask, render_template, request
-from api.database import insert_event, get_event_from_ref_id
+# from api.database import insert_event, get_event_from_ref_id
 
 app = Flask(__name__)
 HOSTNAME = "www.eventplanner.com"
 ref_id = None
 
 
-def generate_unique_url():
-    """ Generator Unique URL."""
-    return str(uuid.uuid4())[:11].replace("-", "").lower()
+# def generate_unique_url():
+#     """ Generator Unique URL."""
+#     return str(uuid.uuid4())[:11].replace("-", "").lower()
 
 
 @app.route("/")
@@ -80,13 +80,16 @@ def planner(ref_id):
 @app.route('/split_budget', methods=('GET', 'POST'))
 def split_budget():
     if request.method == 'POST':
-        # place holder for rest api splitwise
-        pass
+        # number of people
+        return render_template("payment.html")
     return render_template("split_budget.html")
-@app.route('/bill_data')
+
+@app.route('/bill_data', methods=('GET', 'POST'))
 def bill_data():
-    #place holder to save bill name and value to DB
-    return render_template("split_budget.html")
+    if request.method == 'POST':
+        # number of people
+        return render_template("paypal.html")
+    return render_template("payment.html")
 
 
 if __name__ == '__main__':

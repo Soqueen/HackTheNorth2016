@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventPlanner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="../static/js/create.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/about_us">About Us</a></li>
+    <li><a href="#">Log In</a></li>
+    <li><a href="#">Sign Up</a></li>
+  </ul>
+</nav>
+    <div class="div_position">
+      <h3 class="text-muted">EventPlanner</h3>
+          <br>
+
+        <form class="div_position" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+          <!-- Saved buttons use the "secure click" command -->
+          <input type="hidden" name="cmd" value="_s-xclick">
+
+          <!-- Saved buttons are identified by their button IDs -->
+          <input type="hidden" name="hosted_button_id" value="221">
+
+          <!-- Saved buttons display an appropriate button image. -->
+          <input type="image" name="submit"
+            src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+            alt="PayPal - The safer, easier way to pay online">
+          <img alt="" width="1" height="1"
+            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+        </form>
+
+    </div>
+
+
+</body>
+</html>
