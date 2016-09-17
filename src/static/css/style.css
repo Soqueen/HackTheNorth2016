@@ -1,0 +1,26 @@
+.create_text {
+    width: 150px;
+}
+.button {
+    border-radius: 2px;
+    background-color: #DAF7A6;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+    padding: 20px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    float: center;
+}
+.div_position {
+    position: absolute;
+    right: 3%;
+    left: 3%
+}
+.disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}

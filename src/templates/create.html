@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>EventPlanner</title>
+  <title>EventPlanner</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/create.js"></script>
+  <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 0;
+      width: 100%;
+  }
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+  </style>
 </head>
 <body>
-    <div class="container">
-          <div class="header clearfix">
-            <br>
-            <nav>
-              <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
-              </ul>
-            </nav>
-            <h3 class="text-muted">EventPlanner</h3>
-              <form action="/save_data" method="post">
-                  First name:<br>
-                  <input type="text" name="firstname" value="">
-                  <br>
-                  Last name:<br>
-                  <input type="text" name="lastname" value="">
-                  <br><br>
-                  <input type="submit" value="Submit">
-              </form>
-          </div>
 
-          <h1> Schedule an Event </h1>
-          <footer class="footer">
-            <p>© 2016 EventPlanner, Inc.</p>
-          </footer>
-
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/about_us">About Us</a></li>
+    <li><a href="#">Log In</a></li>
+    <li><a href="#">Sign Up</a></li>
+  </ul>
+</nav>
+    <div class="div_position">
+      <h3 class="text-muted">EventPlanner</h3>
+          <br>
+        <!--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">-->
+          <!--<ul class="nav navbar-nav">-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            <li ><a href="/create" >1. General</a></li>
+            <li class="disabled"><a href="/invitation" >2. Invitation</a></li>
+            <li class="disabled"><a href="/splitting" >3. Budget Splitting</a></li>
+          </ul>
+        </div>
+      <form class="div_position" action="/save_general" method="post">
+          <strong>Event Name:</strong><br>
+          <input id="event_name" type="text" name="eventname" class="create_text" value="" >
+          <br><br>
+          <strong>Event Location:</strong><br>
+          <input id="event_location" type="text" name="eventlocation" class="create_text" value="">
+          <br><br>
+          <strong>Date Proposal:</strong><br>
+          <input id="event_date" type="date" name="event_date" min="2016-09-01">
+          <br><br>
+          <strong>Start Time:</strong><br>
+          <input id="event_start_time" type="time" name="eventstarttime">
+          <br><br>
+          <strong>End Time:</strong><br>
+          <input id="event_end_time" type="time" name="eventendtime">
+          <br><br>
+          <strong>Event Description:</strong><br>
+          <input id="event_description" type="text" name="eventdescription" style="width: 250px; height: 70px" value="">
+          <br><br>
+          <strong>Your Name:</strong><br>
+          <input id="username" type="text" name="username" class="create_text" value="" >
+          <br><br>
+          <strong>Your Email:</strong><br>
+          <input id="email" type="text" name="user_email" class="create_text" value="" >
+          <br><br>
+          <!--<input  type="button" class = "button" value="Previous">-->
+          <input type="submit" class = "button" value="Next">
+          <input type="reset" class = "button">
+      </form>
     </div>
+
+    <!--<br><br>-->
+    <!--<footer class="footer">-->
+        <!--<p>© 2016 EventPlanner, Inc.</p>-->
+    <!--</footer>-->
+
+
 </body>
 </html>
