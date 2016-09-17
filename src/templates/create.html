@@ -5,12 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/moment.min.js"></script>
-  <script src="js/create.js"></script>
+  <script src="{{ url_for('static', filename='js/create.js') }}"></script>
   <style>
   /* Note: Try to remove the following lines to see the effect of CSS positioning */
   .affix {
@@ -45,7 +43,7 @@
             <li class="disabled"><a href="/splitting" >3. Budget Splitting</a></li>
           </ul>
         </div>
-      <form class="div_position" action="/save_general" method="post">
+      <form id="event-form" class="div_position" action="/save_general" method="post">
           <strong>Event Name:</strong><br>
           <input id="event_name" type="text" name="eventname" class="create_text" value="" >
           <br><br>
@@ -71,8 +69,8 @@
           <input id="email" type="text" name="user_email" class="create_text" value="" >
           <br><br>
           <!--<input  type="button" class = "button" value="Previous">-->
-          <input type="submit" class = "button" value="Next">
-          <input type="reset" class = "button">
+          <input type="submit" class="button" value="Next">
+          <input type="reset" class="button">
       </form>
     </div>
 
