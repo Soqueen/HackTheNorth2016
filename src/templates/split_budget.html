@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="static/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/create.js"></script>
   <style>
   /* Note: Try to remove the following lines to see the effect of CSS positioning */
   .affix {
@@ -30,17 +33,30 @@
     <li><a href="#">Sign Up</a></li>
   </ul>
 </nav>
-<div class="div_position">
-  <h3 class="text-muted">EventPlanner</h3>
+    <div class="div_position">
+      <h3 class="text-muted">EventPlanner</h3>
+          <br>
+        <!--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">-->
+          <!--<ul class="nav navbar-nav">-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            <li ><a href="/create" >1. General</a></li>
+            <li ><a href="/invitation" >2. Invitation</a></li>
+            <li ><a href="/splitting" >3. Budget Splitting</a></li>
+          </ul>
+        </div>
+      <form class="div_position" action="/split_budget" method="post">
 
-  <div class="jumbotron">
-    <h2> Thank you !!!</h2>
-    <br>
-    <p>Copy the link below to share your event with your guests</p>
-  </div>
-</div>
 
+          <input type="submit" class = "button" value="Next">
+          <input type="reset" class = "button">
+      </form>
+    </div>
 
+    <!--<br><br>-->
+    <!--<footer class="footer">-->
+        <!--<p>© 2016 EventPlanner, Inc.</p>-->
+    <!--</footer>-->
 
 
 </body>
