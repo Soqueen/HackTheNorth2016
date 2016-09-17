@@ -11,15 +11,6 @@
 
   <script src="../static/js/create.js"></script>
   <style>
-  /* Note: Try to remove the following lines to see the effect of CSS positioning */
-  .affix {
-      top: 0;
-      width: 100%;
-  }
-
-  .affix + .container-fluid {
-      padding-top: 70px;
-  }
   </style>
 </head>
 <body>
@@ -40,16 +31,26 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
             <li ><a href="/create" >1. General</a></li>
-            <li class="disabled"><a href="/invitation" >2. Invitation</a></li>
+            <li ><a href="/invitation" >2. Invitation</a></li>
             <li ><a href="/split_budget" >3. Budget Splitting</a></li>
           </ul>
         </div>
-      <form class="div_position" action="/split_budget" method="post">
+        <form class="div_position" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
-          <input type="submit" class = "button" value="Next">
-          <input type="reset" class = "button">
-      </form>
+          <!-- Saved buttons use the "secure click" command -->
+          <input type="hidden" name="cmd" value="_s-xclick">
 
+          <!-- Saved buttons are identified by their button IDs -->
+          <input type="hidden" name="hosted_button_id" value="221">
+
+          <!-- Saved buttons display an appropriate button image. -->
+          <input type="image" name="submit"
+            src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+            alt="PayPal - The safer, easier way to pay online">
+          <img alt="" width="1" height="1"
+            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+        </form>
     </div>
 
 </body>
