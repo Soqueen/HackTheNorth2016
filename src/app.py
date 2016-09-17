@@ -35,6 +35,12 @@ def invitation():
         return render_template("finish.html")
     return render_template("invitation.html")
 
+@app.route('/split_budget', methods=('GET', 'POST'))
+def split_budget():
+    if request.method == 'POST':
+        # place holder for rest api splitwise
+        pass
+    return render_template("split_budget.html")
 
 if __name__ == '__main__':
     app.debug = True

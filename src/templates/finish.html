@@ -32,12 +32,22 @@
 </nav>
 <div class="div_position">
   <h3 class="text-muted">EventPlanner</h3>
-
+  <br>
+  <!--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">-->
+    <!--<ul class="nav navbar-nav">-->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      <li><a href="/create">1. General</a></li>
+      <li><a href="/invitation">2. Invitation</a></li>
+      <li class="disabled"><a href="/splitting">3. Budget Splitting</a></li>
+    </ul>
+  </div>
   <div class="jumbotron">
     <h2> Thank you !!!</h2>
     <br>
     <p>Copy the link below to share your event with your guests</p>
   </div>
+  <p><a class="btn btn-lg btn-success" href="{{ url_for('split_budget')}}" role="button">Do you want to plan the budget Now?</a></p>
 </div>
 
 
