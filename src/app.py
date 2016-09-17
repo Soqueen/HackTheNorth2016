@@ -76,22 +76,23 @@ def share():
 def planner(ref_id):
     if request.method == 'POST':
         # Retrieve data from DB here
-        guest_name = request.form["name"]
-        attending = request.form["attending"] #
-        insert_guest(
-            guest_name,
-            attending,
-            ref_id
-        )
-
+        pass
     return render_template("planner.html", ref_id=ref_id)
 
 
 @app.route('/planner/<ref_id>/save', methods=('GET', 'POST'))
 def save_planner(ref_id):
     if request.method == 'POST':
-        # Save guests data in DB here
-        return "YES"
+        guest_name = request.form["name"]
+        attending = request.form.getlist("attending")
+
+        insert_guest(
+            guest_name,
+            True if attending else False,
+            ref_id
+        )
+
+        return "YES" # Should return to another page
 
 
 @app.route('/split_budget', methods=('GET', 'POST'))
