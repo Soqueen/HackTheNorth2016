@@ -29,7 +29,7 @@ def create():
     return render_template("create.html")
 
 
-@app.route('/save_general', methods=('GET', 'POST'))
+@app.route('/send_invite', methods=('GET', 'POST'))
 def save_data():
     if request.method == 'POST':
         event_name = request.form["eventname"]
@@ -53,15 +53,15 @@ def save_data():
             url_ref
         )
 
-        return render_template("invitation.html")
+        return render_template("send_invite.html")
     return render_template("create.html")
 
 
-@app.route('/invitation', methods=('GET', 'POST'))
+@app.route('/share', methods=('GET', 'POST'))
 def invitation():
     if request.method == 'POST':
-        return render_template("finish.html")
-    return render_template("invitation.html")
+        return render_template("share.html")
+    return render_template("send_invite.html")
 
 @app.route('/split_budget', methods=('GET', 'POST'))
 def split_budget():
