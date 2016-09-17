@@ -3,10 +3,11 @@
 import sys
 import uuid
 from flask import Flask, render_template, request
-from api.database import insert_event
+from api.database import insert_event, get_event_from_ref_id
 
 app = Flask(__name__)
-
+HOSTNAME = "www.eventplanner.com"
+ref_id = ""
 
 def generate_unique_url():
     """ Generator Unique URL."""
@@ -41,7 +42,7 @@ def save_data():
         event_host_name = request.form["username"]
         host_email = request.form["user_email"]
 
-        url_ref = generate_unique_url()
+        ref_id = generate_unique_url()
 
         insert_event(
             event_name,
@@ -50,18 +51,24 @@ def save_data():
             event_description,
             event_host_name,
             host_email,
-            url_ref
+            ref_id
         )
 
         return render_template("send_invite.html")
     return render_template("create.html")
 
 
-@app.route('/share', methods=('GET', 'POST'))
-def invitation():
+@app.route('/share/<ref_id>', methods=('GET', 'POST'))
+def invitation(ref_id):
     if request.method == 'POST':
-        return render_template("share.html")
+        event = get_event_from_ref_id(ref_id)
+
+        if event:
+            ref_id = event["url"]
+            url = "{}/{}".format(HOSTNAME, ref_id)
+            return render_template("share.html", url=url)
     return render_template("send_invite.html")
+
 
 @app.route('/split_budget', methods=('GET', 'POST'))
 def split_budget():
@@ -73,6 +80,7 @@ def split_budget():
 def bill_data():
     #place holder to save bill name and value to DB
     return render_template("split_budget.html")
+
 
 if __name__ == '__main__':
     app.debug = True
