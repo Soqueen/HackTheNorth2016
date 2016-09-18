@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from api.database import insert_event, insert_guest
 
 app = Flask(__name__)
-HOSTNAME = "www.eventplanner.com"
+HOSTNAME = "www.eventplanner.noip.me"
 ref_id = None
 
 
