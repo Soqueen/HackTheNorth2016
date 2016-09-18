@@ -47,7 +47,7 @@
     <br>
     <p>Copy the link below to share your event with your guests</p>
     {% if url is not none %}
-      <p> {{ url }} </p>
+      <a href="{{ url }}"> {{ url }} </a>
     {% endif %}
   </div>
   <p><a class="btn btn-lg btn-success" href="{{ url_for('split_budget')}}" role="button">Do you want to plan the budget Now?</a></p>
