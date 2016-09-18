@@ -97,6 +97,23 @@ def insert_event(event_name, time, location, description, host_name, email, url)
     # import sys
     # print(is_url_unique(url), file=sys.stderr)
 
+
+def get_event_from_ref_id(ref_id):
+    """ Get even from ref id.
+
+    Args:
+        ref_id (str): Unique id of the event.
+    """
+
+    query = db.get(
+        "events",
+        ref_id,
+        "url"
+    )
+
+    return query if query else None
+
+
 # TODO: NOT DONE
 def is_url_unique(url):
     count = db.query(
@@ -107,6 +124,7 @@ def is_url_unique(url):
         """.format(url)
     )
     # print(count)
+
 
 if __name__ == '__main__':
     init_setup()
