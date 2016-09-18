@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS guests;
 
 CREATE TABLE guests (
 	id 			 BIGSERIAL		PRIMARY KEY,
-	email        TEXT			NOT NULL,
-	attending	 BOOLEAN		
+	email        TEXT
+	attending	 BOOLEAN
 );
 \echo
 

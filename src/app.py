@@ -3,7 +3,7 @@
 import sys
 import uuid
 from flask import Flask, render_template, request
-# from api.database import insert_event, get_event_from_ref_id
+from api.database import insert_event, insert_guest
 
 app = Flask(__name__)
 HOSTNAME = "www.eventplanner.com"
@@ -63,18 +63,35 @@ def send_invite():
 
 
 @app.route('/share', methods=('GET', 'POST'))
-# @app.route('/share/<ref_id>', methods=('GET', 'POST'))
 def share():
     if request.method == 'POST':
         if ref_id:
             url = "{}/{}".format(HOSTNAME, ref_id)
+            # Should add guest's data in DB here
             return render_template("share.html", url=url)
     return render_template("share.html")
 
 
 @app.route('/planner/<ref_id>', methods=('GET', 'POST'))
 def planner(ref_id):
-    return render_template("planner.html")
+    if request.method == 'POST':
+        # Retrieve data from DB here
+        guest_name = request.form["name"]
+        attending = request.form["attending"] #
+        insert_guest(
+            guest_name,
+            attending,
+            ref_id
+        )
+
+    return render_template("planner.html", ref_id=ref_id)
+
+
+@app.route('/planner/<ref_id>/save', methods=('GET', 'POST'))
+def save_planner(ref_id):
+    if request.method == 'POST':
+        # Save guests data in DB here
+        return "YES"
 
 
 @app.route('/split_budget', methods=('GET', 'POST'))

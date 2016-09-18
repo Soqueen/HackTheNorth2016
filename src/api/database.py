@@ -53,6 +53,7 @@ def init_setup():
             CREATE TABLE guests (
                 id           BIGSERIAL      PRIMARY KEY,
                 event_id     BIGSERIAL      REFERENCES events(id),
+                name         TEXT           NOT NULL,
                 email        TEXT           NOT NULL,
                 attending    BOOLEAN
             );
@@ -99,7 +100,7 @@ def insert_event(event_name, time, location, description, host_name, email, url)
 
 
 def get_event_from_ref_id(ref_id):
-    """ Get even from ref id.
+    """ Get event from ref id.
 
     Args:
         ref_id (str): Unique id of the event.
@@ -112,6 +113,27 @@ def get_event_from_ref_id(ref_id):
     )
 
     return query if query else None
+
+
+def insert_guest(guest_name, attending, ref_id, email=None):
+    """ Insert guest data in the DB.
+
+    Args:
+        guest_name (str): Guest's name.
+        attending (bool): Whether or not the guest will attend the event.
+        ref_id (str): Unique id of the event.
+        email (str): Guest's email (optional).
+    """
+
+    event = get_event_from_ref_id(ref_id)
+    print(event)
+    db.insert(
+        "guests",
+        event_id=event["id"],
+        name=guest_name,
+        attending=attending,
+        email=email if email else ""
+    )
 
 
 # TODO: NOT DONE
