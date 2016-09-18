@@ -7,7 +7,8 @@ from api.database import insert_event, get_event_from_ref_id
 
 app = Flask(__name__)
 HOSTNAME = "www.eventplanner.com"
-ref_id = ""
+ref_id = None
+
 
 def generate_unique_url():
     """ Generator Unique URL."""
@@ -31,7 +32,7 @@ def create():
 
 
 @app.route('/send_invite', methods=('GET', 'POST'))
-def save_data():
+def send_invite():
     if request.method == 'POST':
         event_name = request.form["eventname"]
         event_location = request.form["eventlocation"]
@@ -42,7 +43,10 @@ def save_data():
         event_host_name = request.form["username"]
         host_email = request.form["user_email"]
 
+        global ref_id
         ref_id = generate_unique_url()
+
+        print(ref_id, file=sys.stderr)
 
         insert_event(
             event_name,
@@ -58,16 +62,19 @@ def save_data():
     return render_template("create.html")
 
 
-@app.route('/share/<ref_id>', methods=('GET', 'POST'))
-def invitation(ref_id):
+@app.route('/share', methods=('GET', 'POST'))
+# @app.route('/share/<ref_id>', methods=('GET', 'POST'))
+def share():
     if request.method == 'POST':
-        event = get_event_from_ref_id(ref_id)
-
-        if event:
-            ref_id = event["url"]
+        if ref_id:
             url = "{}/{}".format(HOSTNAME, ref_id)
             return render_template("share.html", url=url)
-    return render_template("send_invite.html")
+    return render_template("share.html")
+
+
+@app.route('/planner/<ref_id>', methods=('GET', 'POST'))
+def planner(ref_id):
+    return render_template("planner.html")
 
 
 @app.route('/split_budget', methods=('GET', 'POST'))

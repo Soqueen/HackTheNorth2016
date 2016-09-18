@@ -33,25 +33,22 @@
 <div class="div_position">
   <h3 class="text-muted">EventPlanner</h3>
   <br>
-  <!--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">-->
-    <!--<ul class="nav navbar-nav">-->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      <li><a href="/create">1. General</a></li>
-      <li><a href="/send_invite">2. Send Invites</a></li>
-      <li class="disabled"><a href="/splitting">3. Budget Splitting</a></li>
-    </ul>
+  <div>
+    <form method="post">
+      <table class="table">
+        <tr>
+          <td>
+            <input type="text" name="">
+          </td>
+          <td>
+            <input type="checkbox" name="">
+          </td>
+        </tr>
+      </table>
+
+      <input type="button" class="buttn" value="Save">
+    </form>
   </div>
-  <div class="jumbotron">
-    <h2> Thank you !!!</h2>
-    <br>
-    <p>Copy the link below to share your event with your guests</p>
-    {% if url is not none %}
-      <p> {{ url }} </p>
-    {% endif %}
-  </div>
-  <p><a class="btn btn-lg btn-success" href="{{ url_for('split_budget')}}" role="button">Do you want to plan the budget Now?</a></p>
-</div>
 
 </body>
 </html>
