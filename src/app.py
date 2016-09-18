@@ -6,7 +6,7 @@ from flask import Flask, render_template, request
 from api.database import insert_event, insert_guest
 
 app = Flask(__name__)
-HOSTNAME = "www.eventplanner.noip.me"
+HOSTNAME = "localhost:5000"
 ref_id = None
 
 
@@ -66,7 +66,7 @@ def send_invite():
 def share():
     if request.method == 'POST':
         if ref_id:
-            url = "{}/{}".format(HOSTNAME, ref_id)
+            url = "{}/planner/{}".format(HOSTNAME, ref_id)
             # Should add guest's data in DB here
             return render_template("share.html", url=url)
     return render_template("share.html")
