@@ -8,9 +8,8 @@
   <link rel="stylesheet" href="static/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/jquery.js"></script>
-  <script src="js/moment.min.js"></script>
-  <script src="js/create.js"></script>
+
+  <script src="../static/js/create.js"></script>
   <style>
   /* Note: Try to remove the following lines to see the effect of CSS positioning */
   .affix {
@@ -45,16 +44,31 @@
             <li ><a href="/split_budget" >3. Budget Splitting</a></li>
           </ul>
         </div>
-      <form class="div_position" action="/split_budget" method="post">
-          <script>$("#testLoad").load("https://secure.splitwise.com/");</script>
-          <div id="testLoad"></div>
-          <input type="submit" class = "button" value="Next">
-          <input type="reset" class = "button">
-      </form>
+      <!--<form class="div_position" action="/split_budget" method="post">-->
+          <!--<script>$("#testLoad").load("https://secure.splitwise.com/");</script>-->
+            <!--&lt;!&ndash;<div id="testLoad"></div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<iframe width="420" height="315" src="https://secure.splitwise.com/" frameborder="0" allowfullscreen></iframe>&ndash;&gt;-->
+            <!--<iframe src="https://venmo.com/"></iframe>-->
+          <!--<input type="submit" class = "button" value="Next">-->
+          <!--<input type="reset" class = "button">-->
+      <!--</form>-->
+        <form class="div_position" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+          <!-- Saved buttons use the "secure click" command -->
+          <input type="hidden" name="cmd" value="_s-xclick">
+
+          <!-- Saved buttons are identified by their button IDs -->
+          <input type="hidden" name="hosted_button_id" value="221">
+
+          <!-- Saved buttons display an appropriate button image. -->
+          <input type="image" name="submit"
+            src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+            alt="PayPal - The safer, easier way to pay online">
+          <img alt="" width="1" height="1"
+            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+        </form>
     </div>
-
-
-
 
 </body>
 </html>
