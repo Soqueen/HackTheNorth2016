@@ -21,7 +21,6 @@
   </style>
 </head>
 <body>
-
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
   <ul class="nav navbar-nav">
     <li class="active"><a href="/">Home</a></li>
@@ -30,24 +29,31 @@
     <li><a href="#">Sign Up</a></li>
   </ul>
 </nav>
-<div class="div_position">
-  <h3 class="text-muted">EventPlanner</h3>
-  <br>
-  <div>
-    <form method="post">
-      <table class="table">
-        <tr>
-          <td>
-            <input type="text" name="">
-          </td>
-          <td>
-            <input type="checkbox" name="">
-          </td>
-        </tr>
-      </table>
-
-      <input type="button" class="buttn" value="Save">
-    </form>
+<div class="container">
+  <div class="div_position">
+    <h3 class="text-muted">EventPlanner</h3>
+    <br>
+    <div class="row">
+      <div class="col-xs-4">
+        <form method="post">
+          <table class="table">
+            <tr>
+              <th> Participants </th>
+              <th> Attending </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" name="" placeholder="Your name">
+              </td>
+              <td>
+                <input type="checkbox" name="">
+              </td>
+            </tr>
+          </table>
+          <input type="button" class="btn btn-default" value="Save">
+        </form>
+      </div>
+    </div>
   </div>
 
 </body>
