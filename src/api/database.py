@@ -35,19 +35,8 @@ def init_setup():
 
     db.query(
         """
-            CREATE TABLE guests (
-                id           BIGSERIAL      PRIMARY KEY,
-                email        TEXT           NOT NULL,
-                attending    BOOLEAN
-            );
-        """
-    )
-
-    db.query(
-        """
             CREATE TABLE events (
                 id           BIGSERIAL      PRIMARY KEY,
-                guests_id    BIGSERIAL      REFERENCES guests(id),
                 event_name   TEXT           NOT NULL,
                 location     TEXT           NOT NULL,
                 time         TIMESTAMP      NOT NULL,
@@ -59,6 +48,17 @@ def init_setup():
         """
     )
 
+    db.query(
+        """
+            CREATE TABLE guests (
+                id           BIGSERIAL      PRIMARY KEY,
+                event_id     BIGSERIAL      REFERENCES events(id),
+                email        TEXT           NOT NULL,
+                attending    BOOLEAN
+            );
+        """
+    )
+
 
 def clear_db():
     """ Clear old database's tables
@@ -66,7 +66,47 @@ def clear_db():
 
     db.query(
         """
-            DROP TABLE IF EXISTS events;
             DROP TABLE IF EXISTS guests;
+            DROP TABLE IF EXISTS events;
         """
     )
+
+
+def insert_event(event_name, time, location, description, host_name, email, url):
+    """ Insert event data in the DB.
+
+    Args:
+        event_name (str): Name of the event.
+        time (str): Time of the event.
+        location (str): Location of the event.
+        description (str): Description of the event.
+        host_name (str): Host name.
+        email (str): Email.
+        url (str): Unique URL.
+    """
+    db.insert(
+        "events",
+        event_name=event_name,
+        time=time,
+        location=location,
+        description=description,
+        host_name=host_name,
+        email=email,
+        url=url
+    )
+    # import sys
+    # print(is_url_unique(url), file=sys.stderr)
+
+# TODO: NOT DONE
+def is_url_unique(url):
+    count = db.query(
+        """
+            SELECT COUNT(event_name)
+            FROM events
+            WHERE url = '{}'
+        """.format(url)
+    )
+    # print(count)
+
+if __name__ == '__main__':
+    init_setup()
