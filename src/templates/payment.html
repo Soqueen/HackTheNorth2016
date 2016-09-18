@@ -28,6 +28,7 @@
           <br>
         <!--<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">-->
           <!--<ul class="nav navbar-nav">-->
+        <form class="div_position" action="/bill_data" method="post">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
             <li ><a href="/create" >1. General</a></li>
@@ -35,23 +36,49 @@
             <li ><a href="/split_budget" >3. Budget Splitting</a></li>
           </ul>
         </div>
-        <form class="div_position" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1"></span>
+              <input type="text" class="form-control" placeholder="First Name Last Name" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-addon" id="basic-addon2">@example.com</span>
+        </div>
+        <br>
+        <div class="input-group">
+              <span class="input-group-addon">#Participants</span>
+              <input type="text" placeholder="First Name Last Name" class="form-control" aria-label="Number of people">
+        </div>
+          <br>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon">$/Person</span>
+          <span class="input-group-addon">0.00</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+            <br><br>
+        <input type="submit" class="button" value="Next">
+        <input type="reset" class="button">
+        <!--<form class="div_position" action="https://www.paypal.com/cgi-bin/webscr" method="post">-->
 
-          <!-- Saved buttons use the "secure click" command -->
-          <input type="hidden" name="cmd" value="_s-xclick">
+          <!--&lt;!&ndash; Saved buttons use the "secure click" command &ndash;&gt;-->
+          <!--<input type="hidden" name="cmd" value="_s-xclick">-->
 
-          <!-- Saved buttons are identified by their button IDs -->
-          <input type="hidden" name="hosted_button_id" value="221">
+          <!--&lt;!&ndash; Saved buttons are identified by their button IDs &ndash;&gt;-->
+          <!--<input type="hidden" name="hosted_button_id" value="221">-->
 
-          <!-- Saved buttons display an appropriate button image. -->
-          <input type="image" name="submit"
-            src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
-            alt="PayPal - The safer, easier way to pay online">
-          <img alt="" width="1" height="1"
-            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+          <!--&lt;!&ndash; Saved buttons display an appropriate button image. &ndash;&gt;-->
+          <!--<input type="image" name="submit"-->
+            <!--src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"-->
+            <!--alt="PayPal - The safer, easier way to pay online">-->
+          <!--<img alt="" width="1" height="1"-->
+            <!--src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >-->
 
-        </form>
+        <!--</form>-->
+    </form>
     </div>
+
 
 </body>
 </html>
